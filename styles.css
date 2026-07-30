@@ -259,10 +259,10 @@ a:hover {
   }
 }
 
-/* —— Phone mock —— */
-.phone {
+/* —— Real screenshot in device frame —— */
+.phone-shot {
+  margin: 0;
   width: min(100%, 290px);
-  aspect-ratio: 9 / 19.2;
   border-radius: 36px;
   padding: 10px;
   background: linear-gradient(160deg, #2a3140, #12151c);
@@ -270,126 +270,18 @@ a:hover {
     0 0 0 1px rgba(255, 255, 255, 0.08),
     0 30px 80px rgba(0, 0, 0, 0.55),
     0 0 60px rgba(46, 140, 242, 0.15);
-  position: relative;
 }
 
-.phone-screen {
-  height: 100%;
+.phone-shot img {
+  width: 100%;
+  height: auto;
   border-radius: 28px;
-  background: #0f1219;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 1.1rem 0.85rem 0.85rem;
-}
-
-.phone-status {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  margin-bottom: 0.85rem;
-  padding-inline: 0.25rem;
-}
-
-.phone-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 0 0 0.85rem;
-}
-
-.mock-card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.7rem 0.75rem;
-  margin-bottom: 0.55rem;
-}
-
-.mock-card strong {
   display: block;
-  font-size: 0.82rem;
-  margin-bottom: 0.15rem;
 }
 
-.mock-card span {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
-
-.mock-row {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.mock-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: rgba(46, 140, 242, 0.2);
-  color: var(--accent);
-  display: grid;
-  place-items: center;
-  font-size: 0.75rem;
-  flex-shrink: 0;
-}
-
-.mock-play {
-  margin-left: auto;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--accent);
-  display: grid;
-  place-items: center;
-  font-size: 0.65rem;
-}
-
-.goal-block {
-  border-left: 3px solid var(--accent-secondary);
-  padding-left: 0.65rem;
-  margin: 0.5rem 0 0.85rem;
-}
-
-.goal-block .label {
-  font-size: 0.65rem;
-  color: var(--accent-secondary);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.goal-block .value {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-
-.timer-ring {
-  width: 120px;
-  height: 120px;
-  margin: 1rem auto;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at center, var(--bg) 62%, transparent 63%),
-    conic-gradient(var(--accent-secondary) 0 72%, rgba(255, 255, 255, 0.08) 0);
-  display: grid;
-  place-items: center;
-}
-
-.timer-ring strong {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.segment-chip {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  text-align: center;
+.feature-visual .phone-shot {
+  width: min(100%, 260px);
+  animation: float 6s ease-in-out infinite;
 }
 
 /* —— Sections —— */
@@ -445,11 +337,6 @@ a:hover {
 .feature-visual {
   display: flex;
   justify-content: center;
-}
-
-.feature-visual .phone {
-  width: min(100%, 260px);
-  animation: float 6s ease-in-out infinite;
 }
 
 .privacy-strip {
