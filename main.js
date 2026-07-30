@@ -25,9 +25,9 @@
     el.textContent = email;
   });
 
-  // Reveal feature screenshots and section copy as they enter the viewport.
+  // Screenshots: reveal on scroll. Section headers: fadeInUp when in view.
   const revealEls = document.querySelectorAll(
-    ".feature-visual .phone-shot, .feature-copy, .reveal-on-scroll"
+    ".feature-visual .phone-shot, .feature-copy, .fade-in-up, .reveal-on-scroll"
   );
   if (!revealEls.length) return;
 
@@ -44,7 +44,7 @@
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.22, rootMargin: "0px 0px -6% 0px" }
+    { threshold: 0.28, rootMargin: "0px 0px -8% 0px" }
   );
 
   revealEls.forEach((el) => observer.observe(el));

@@ -354,6 +354,7 @@ a:hover {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.8vw, 1.9rem);
   letter-spacing: -0.03em;
+  opacity: 0;
 }
 
 .feature-copy p {
@@ -362,25 +363,32 @@ a:hover {
   max-width: 36ch;
 }
 
-.feature-copy {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.75s ease,
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-.feature-copy.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.feature-copy.is-visible h2,
+.fade-in-up.is-visible {
+  animation: fadeInUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fade-in-up {
+  opacity: 0;
 }
 
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(16px);
   transition:
-    opacity 0.75s ease,
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-on-scroll.is-visible {
@@ -389,7 +397,12 @@ a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .feature-copy,
+  .feature-copy h2,
+  .fade-in-up {
+    opacity: 1;
+    animation: none;
+  }
+
   .reveal-on-scroll {
     opacity: 1;
     transform: none;
