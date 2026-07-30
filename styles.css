@@ -238,24 +238,14 @@ a:hover {
   display: flex;
   justify-content: center;
   opacity: 0;
-  transform: translateY(28px);
-  animation: rise 1s ease forwards 0.35s, float 5.5s ease-in-out 1.4s infinite;
+  transform: translateY(24px);
+  animation: rise 0.9s ease forwards 0.35s;
 }
 
 @keyframes rise {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
   }
 }
 
@@ -268,8 +258,34 @@ a:hover {
   background: linear-gradient(160deg, #2a3140, #12151c);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 30px 80px rgba(0, 0, 0, 0.55),
-    0 0 60px rgba(46, 140, 242, 0.15);
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 48px rgba(46, 140, 242, 0.12);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.phone-shot:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 32px 72px rgba(0, 0, 0, 0.55),
+    0 0 56px rgba(46, 140, 242, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-visual {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .phone-shot,
+  .phone-shot:hover {
+    transition: none;
+    transform: none;
+  }
 }
 
 .phone-shot img {
@@ -281,7 +297,21 @@ a:hover {
 
 .feature-visual .phone-shot {
   width: min(100%, 260px);
-  animation: float 6s ease-in-out infinite;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.feature-visual .phone-shot.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-visual .phone-shot.is-visible:hover {
+  transform: translateY(-6px);
 }
 
 /* —— Sections —— */
