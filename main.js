@@ -25,10 +25,14 @@
     el.textContent = email;
   });
 
-  // Reveal feature screenshots as they enter the viewport (one-time, staggered feel).
-  const shots = document.querySelectorAll(".feature-visual .phone-shot");
-  if (!shots.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    shots.forEach((el) => el.classList.add("is-visible"));
+  // Reveal feature screenshots and section copy as they enter the viewport.
+  const revealEls = document.querySelectorAll(
+    ".feature-visual .phone-shot, .feature-copy, .reveal-on-scroll"
+  );
+  if (!revealEls.length) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
     return;
   }
 
@@ -40,8 +44,8 @@
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.28, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.22, rootMargin: "0px 0px -6% 0px" }
   );
 
-  shots.forEach((el) => observer.observe(el));
+  revealEls.forEach((el) => observer.observe(el));
 })();
