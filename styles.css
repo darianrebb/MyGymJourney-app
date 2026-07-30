@@ -88,8 +88,7 @@ a:hover {
   width: 36px;
   height: 36px;
   border-radius: 9px;
-  background: #0a0c10;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .nav {
@@ -191,8 +190,7 @@ a:hover {
   width: 64px;
   height: 64px;
   border-radius: 16px;
-  background: #0a0c10;
-  object-fit: contain;
+  object-fit: cover;
   box-shadow: 0 16px 40px rgba(46, 140, 242, 0.35);
 }
 
