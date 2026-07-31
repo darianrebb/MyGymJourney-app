@@ -8,7 +8,9 @@
       name="description"
       content="My Gym Journey helps you build workouts, log sets, track progressive overload, and run cardio timers—all on your device."
     />
-    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="icon" href="assets/favicon-32.png?v=3" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/favicon-48.png?v=3" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="assets/logo-512.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,8 +18,51 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preload" as="image" href="assets/logo.png" />
+    <link rel="preload" as="image" href="assets/screenshots/hero-workout-detail.png" />
+    <link rel="preload" as="image" href="assets/screenshots/feature-new-workout.png" />
+    <link rel="preload" as="image" href="assets/screenshots/feature-chart.png" />
+    <link rel="preload" as="image" href="assets/screenshots/feature-cardio.png" />
+    <link rel="preload" as="image" href="assets/screenshots/feature-complete.png" />
   </head>
   <body>
+    <div
+      id="intro-splash"
+      class="intro-splash"
+      role="presentation"
+      aria-hidden="true"
+      style="background:#0f1219"
+    >
+      <div class="intro-splash-inner">
+        <img
+          class="intro-splash-logo"
+          src="assets/logo.png"
+          width="140"
+          height="140"
+          alt=""
+          decoding="async"
+        />
+        <p class="intro-splash-title">My Gym Journey</p>
+        <p class="intro-splash-tagline">Track. Progress. Achieve.</p>
+      </div>
+    </div>
+    <script>
+      (function () {
+        try {
+          if (
+            sessionStorage.getItem("mgj-splash-seen") === "1" ||
+            (window.matchMedia &&
+              window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          ) {
+            var el = document.getElementById("intro-splash");
+            if (el) el.remove();
+            return;
+          }
+        } catch (e) {}
+        document.documentElement.classList.add("splash-active");
+      })();
+    </script>
+
     <header class="site-header">
       <div class="container">
         <a class="brand" href="index.html">
@@ -87,7 +132,9 @@
                 width="750"
                 height="1622"
                 alt="New Workout screen with schedule day pickers and exercise list"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
+                fetchpriority="low"
               />
             </figure>
           </div>
@@ -110,7 +157,9 @@
                 width="750"
                 height="1622"
                 alt="Workout chart showing 1RM progress over the week"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
+                fetchpriority="low"
               />
             </figure>
           </div>
@@ -120,10 +169,10 @@
       <section class="section" style="padding-top: 0">
         <div class="container feature-split">
           <div class="feature-copy">
-            <h2>Cardio timers you can trust</h2>
+            <h2>Cardio that stays on screen</h2>
             <p>
-              Segment timers for treadmill and no-incline cardio stay glanceable—with Live Activities
-              and optional keep-awake while a segment is running.
+              Segment timers stay glanceable while you move—with Live Activities and optional
+              keep-awake so the countdown stays easy to read.
             </p>
           </div>
           <div class="feature-visual">
@@ -133,7 +182,9 @@
                 width="750"
                 height="1622"
                 alt="Treadmill segment timer showing countdown, speed, incline, and segment list"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
+                fetchpriority="low"
               />
             </figure>
           </div>
@@ -156,7 +207,9 @@
                 width="750"
                 height="1622"
                 alt="Workout Complete screen with duration and Saved to Apple Health"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
+                fetchpriority="low"
               />
             </figure>
           </div>
@@ -167,8 +220,7 @@
         <div class="container">
           <h2 class="fade-in-up">Your data stays with you</h2>
           <p>
-            Workouts are stored on device. Optional tips are processed by Apple. Health writes only
-            with your permission.
+            Workouts are stored on device. Health writes only with your permission.
           </p>
           <a class="btn btn-ghost" href="privacy.html">Read the privacy policy</a>
         </div>
@@ -177,7 +229,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <div>© My Gym Journey · Optional tips support development</div>
+        <div>© 2026 Darian Rebb · My Gym Journey</div>
         <div class="footer-links">
           <a href="support.html">Support</a>
           <a href="privacy.html">Privacy</a>

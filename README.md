@@ -2,21 +2,21 @@
 
 Marketing, support, and privacy pages for **My Gym Journey**.
 
-**Live (after Pages is enabled):** https://darianrebb.github.io/MyGymJourney-app/
+**Live:** https://www.mygymjourney.app/
 
 ## App Store Connect URLs
 
-Once GitHub Pages is live:
+- **Support URL:** `https://www.mygymjourney.app/support.html`
+- **Privacy Policy URL:** `https://www.mygymjourney.app/privacy.html`
 
-- **Support URL:** `https://darianrebb.github.io/MyGymJourney-app/support.html`
-- **Privacy Policy URL:** `https://darianrebb.github.io/MyGymJourney-app/privacy.html`
+## Custom domain (GitHub Pages)
 
-## Enable GitHub Pages
-
-1. Open the repo on GitHub → **Settings** → **Pages**
-2. **Source:** Deploy from a branch
-3. **Branch:** `main` / folder: `/ (root)`
-4. Save — wait a minute for the site to publish
+1. Repo **Settings → Pages**: deploy from `main` / `/ (root)`. Repo should be **public**.
+2. Keep the [`CNAME`](CNAME) file (`www.mygymjourney.app`) committed on `main`.
+3. At your DNS provider, add:
+   - **CNAME** `www` → `darianrebb.github.io` (no `/MyGymJourney-app`)
+   - Optional apex **A** records on `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+4. In **Settings → Pages → Custom domain**, enter `www.mygymjourney.app`, save, wait for DNS check, then enable **Enforce HTTPS**.
 
 ## Configuration
 
@@ -25,7 +25,7 @@ Edit [`config.js`](config.js):
 ```js
 window.SITE_CONFIG = {
   APP_STORE_URL: null, // set to your App Store URL when ready
-  SUPPORT_EMAIL: "support@example.com", // your real support email
+  SUPPORT_EMAIL: "support@mygymjourney.app",
 };
 ```
 
@@ -38,7 +38,3 @@ python3 -m http.server 8080
 ```
 
 Then visit http://localhost:8080
-
-## Note
-
-The iOS app source lives in the private **MyGymJourney** repository. This public repo contains only the website.

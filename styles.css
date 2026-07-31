@@ -53,6 +53,100 @@ a:hover {
   margin-inline: auto;
 }
 
+/* —— Intro splash (homepage cold visit) —— */
+html.splash-active {
+  overflow: hidden;
+}
+
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.intro-splash.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-splash-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.intro-splash-logo {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.82);
+  filter: blur(10px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease-out;
+}
+
+.intro-splash-title,
+.intro-splash-tagline {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.intro-splash.is-ready .intro-splash-logo {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.intro-splash.is-ready .intro-splash-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.28s;
+}
+
+.intro-splash.is-ready .intro-splash-tagline {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.42s;
+}
+
+.intro-splash-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.intro-splash-tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-splash,
+  .intro-splash-logo,
+  .intro-splash-title,
+  .intro-splash-tagline {
+    transition: none;
+  }
+}
+
 /* —— Header —— */
 .site-header {
   position: absolute;
