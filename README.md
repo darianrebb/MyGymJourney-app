@@ -4,8 +4,9 @@ Marketing, support, and privacy pages for **My Gym Journey**.
 
 **Live:** https://www.mygymjourney.app/
 
-## App Store Connect URLs
+## App Store
 
+- **App Store:** https://apps.apple.com/app/my-gym-journey/id6789951892
 - **Support URL:** `https://www.mygymjourney.app/support.html`
 - **Privacy Policy URL:** `https://www.mygymjourney.app/privacy.html`
 
@@ -24,7 +25,7 @@ Edit [`config.js`](config.js):
 
 ```js
 window.SITE_CONFIG = {
-  APP_STORE_URL: null, // set to your App Store URL when ready
+  APP_STORE_URL: "https://apps.apple.com/app/my-gym-journey/id6789951892",
   SUPPORT_EMAIL: "support@mygymjourney.app",
 };
 ```
