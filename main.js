@@ -16,20 +16,7 @@
   const SPLASH_MAX_MS = 1600;
 
   document.querySelectorAll("[data-app-store-cta]").forEach((el) => {
-    if (storeUrl) {
-      el.href = storeUrl;
-      el.classList.remove("is-disabled");
-      el.removeAttribute("aria-disabled");
-      el.textContent = el.dataset.labelLive || "Download on the App Store";
-      const note = document.querySelector("[data-app-store-note]");
-      if (note) note.hidden = true;
-    } else {
-      el.href = "#";
-      el.classList.add("is-disabled");
-      el.setAttribute("aria-disabled", "true");
-      el.addEventListener("click", (e) => e.preventDefault());
-      el.textContent = el.dataset.labelSoon || "Coming Soon on the App Store";
-    }
+    if (storeUrl) el.href = storeUrl;
   });
 
   document.querySelectorAll("[data-support-email]").forEach((el) => {

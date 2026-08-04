@@ -1,5 +1,6 @@
-/** Site config — set APP_STORE_URL when the listing goes live. */
+/** Site config */
 window.SITE_CONFIG = {
-  APP_STORE_URL: "https://apps.apple.com/app/my-gym-journey/id6789951892",
+  APP_STORE_URL:
+    "https://apps.apple.com/us/app/my-gym-journey/id6789951892?itscg=30200&itsct=apps_box_badge&mttnsubad=6789951892",
   SUPPORT_EMAIL: "support@mygymjourney.app",
 };
